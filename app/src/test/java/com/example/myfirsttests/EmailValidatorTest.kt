@@ -41,4 +41,14 @@ class EmailValidatorTest {
         assertFalse(EmailValidator.isValidEmail(null))
     }
 
+    //   почта без указания домена не будет пропущена программой
+    @Test
+    fun emailValidator_CorrectEmailnNoDomain_ReturnsFalse() {
+        assertFalse(EmailValidator.isValidEmail("name@.ru"))
+    }
+    //   почта без указания @ не будет пропущена программой
+    @Test
+    fun emailValidator_CorrectEmailnNo_ReturnsFalse() {
+        assertFalse(EmailValidator.isValidEmail("name.ru"))
+    }
 }
